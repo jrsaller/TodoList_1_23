@@ -1,3 +1,5 @@
+# Todo App Using Vue Slots
+
 I want you to build a brand new Todo List Vue 3 app from scratch (You can use the cli but don’t use a boilerplate app or anything).  I recommend doing it in Vite, but you can use whatever build tools you want. I’m not concerned about the styles, so you can do as much or as little CSS work as you want.
 
 The requirements of a simple Todo App are:
