@@ -1,15 +1,22 @@
 <script setup lang="ts">
     import { ref } from 'vue';
-    let completed = ref(false);
+    import type {Ref} from 'vue';
 
-    const props = defineProps({
-        itemText: String,
-        index: Number
-    })
+    let completed: Ref<boolean> = ref(false);
 
-    const emits = defineEmits(['removeItem'])
+    // const props = defineProps({
+    //     itemText: String,
+    // })
+    const props = defineProps<{
+        itemText: String
+    }>();
 
-    function completeItem() {
+    // const emits = defineEmits(['removeItem'])
+    const emits = defineEmits<{
+        (e: 'removeItem'): void
+    }>();
+
+    function completeItem() : void {
         completed.value = !completed.value;
     }
 
@@ -19,7 +26,7 @@
 <template>
     <div class="item">
         <input type="checkbox" class="checkbox" @change="completeItem">
-        <div class="itemText" :class="(completed ? 'checked':'unchecked')">{{ itemText }}</div>
+        <div class="itemText" :class="(completed ? 'checked':'unchecked')">{{ props.itemText }}</div>
         <button class="removeButton" @click="emits('removeItem')">X</button>
     </div>
 </template>

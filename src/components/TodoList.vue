@@ -3,19 +3,17 @@
 
     import TodoInput from './TodoInput.vue';
     import TodoItem from './TodoItem.vue';
-    const props = defineProps({
-        itemList: Array<string>
-    })
 
     let itemList: Array<string> = reactive([]);
-    function addItem(text: string) {
-    console.log('Add Item called');
-    console.log(text);
-    itemList.push(text);
-    console.log(itemList);
-  }
+    
+    function addItem(text: string) : void{
+        console.log('Add Item called');
+        console.log(text);
+        itemList.push(text);
+        console.log(itemList);
+    }
 
-  function removeItem(index: number) {
+  function removeItem(index: number) : void {
     console.log('remove Item called with index ',index)
     console.log('Before:', itemList)
     itemList.splice(index,1);

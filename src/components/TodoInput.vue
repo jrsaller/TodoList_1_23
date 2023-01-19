@@ -1,9 +1,15 @@
 <script setup lang="ts">
     import { ref } from 'vue';
-    const itemInput = ref('')
-    const emit = defineEmits(['submitItem'])
+    import type { Ref } from 'vue';
 
-    function submitItem(text: string) {
+    const itemInput: Ref<string> = ref('')
+
+    // const emit = defineEmits(['submitItem'])
+    const emit = defineEmits<{
+        (e: 'submitItem',text: string) : void
+    }>()
+
+    function submitItem(text: string) : void {
         emit('submitItem', text);
         itemInput.value = '';
     }
