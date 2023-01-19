@@ -6,7 +6,6 @@
     const props = defineProps({
         itemList: Array<string>
     })
-    const emits = defineEmits(['removeItem'])
 
     let itemList: Array<string> = reactive([]);
     function addItem(text: string) {
@@ -43,8 +42,10 @@
     .list {
         width:80vw;
         height:50vh;
+        max-height:50vh;
+        overflow-y: auto;
         outline:auto;
-        outline-color: blue;
+        outline-color: rgba(0, 0, 255, 0.24);
     }
     ul.no-bullets {
         list-style-type: none; /* Remove bullets */
